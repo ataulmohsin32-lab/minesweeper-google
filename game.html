@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<link rel="manifest" href="/manifest.json" />
 <meta name="theme-color" content="#3B3B3B"/>
 <meta name="apple-mobile-web-app-status-bar" content="#3B3B3B" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +34,11 @@ html,body{background-color:rgba(0,0,0,0.4)}
 </style>
 </head>
 <body>
+<script>
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/sw.js')
+.then(registration => {console.log('Service Worker registered successfully:', registration);})
+.catch(error => {console.log('Error in Service Worker registration:', error);});});}
+</script>
 <!-- <div id="topbar">
 <div id="logo">
 <img loading="lazy" src="icons/icon-72x72.png" alt="logo" width="32px" height="32px">
